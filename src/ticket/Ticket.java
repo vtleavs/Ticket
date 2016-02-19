@@ -10,7 +10,7 @@ import java.util.Date;
 
 /**
  *
- * @author Ben
+ * @author Ben Leavitt
  */
 public class Ticket 
 {

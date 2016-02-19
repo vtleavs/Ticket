@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Ben
+ * @author Ben Leavitt
  */
 public class TicketBuffer 
 {

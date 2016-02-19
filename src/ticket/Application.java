@@ -5,13 +5,12 @@
  */
 package ticket;
 
-
-
+import java.util.Date;
 import java.util.Scanner;
 
 /**
  *
- * @author Ben
+ * @author Ben Leavitt
  */
 public class Application
 {
@@ -19,6 +18,9 @@ public class Application
     
     public void run()
     {
+        Date d = new Date(System.currentTimeMillis());
+        System.out.println(d.toString()+"\n");
+        
         Scanner input = new Scanner(System.in).useDelimiter("\n");
         
         buffer = new TicketBuffer();
