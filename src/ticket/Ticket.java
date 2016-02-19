@@ -21,6 +21,14 @@ public class Ticket
     //private Date dateCreated = new Date();
     //private Date deadline;
     
+    /**
+     * Creates new ticket.
+     * Used while creating a ticket from user input.
+     * 
+     * @param ti The title of the new ticket
+     * @param disc The description of the new ticket
+     * @param prior The user specified priority of the new ticket
+     */
     public Ticket(String ti, String disc, int prior)
     {
         title = ti;
@@ -29,6 +37,14 @@ public class Ticket
         priority = userPriority;
     }
     
+    /**
+     * Creates new ticket.
+     * Only use for loading from save-file.
+     * 
+     * @param ti The title of the new ticket
+     * @param disc The description of the new ticket
+     * @param prior The saved priority of the new ticket
+     */
     public Ticket(String ti, String disc, double prior)
     {
         title = ti;
