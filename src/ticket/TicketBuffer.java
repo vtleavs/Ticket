@@ -19,18 +19,30 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * The buffer that holds and does operations on the Tickets
+ * 
  * @author Ben Leavitt
  */
 public class TicketBuffer 
 {
-    private ArrayList<Ticket> tickets;
+    private ArrayList<Ticket> tickets; // the tickets
     
+    /**
+     * Initializes the ArrayList of tickets
+     */
     public TicketBuffer()
     {
         tickets = new ArrayList<>();
     }
     
+    /**
+     * Takes the user through the process of making a new Ticket.
+     * Creates the new ticket and adds it to the list
+     * 
+     * Does not sort.
+     * 
+     * @param input The stream to get user input from
+     */
     public void addTicket(Scanner input)
     {
         System.out.println();
@@ -73,6 +85,14 @@ public class TicketBuffer
         System.out.println();
     }
     
+    /**
+     * Takes the user through the process of editing an existing Ticket.
+     * Changes the values of the ticket to the new values.
+     * 
+     * Does not sort.
+     * 
+     * @param input The stream to get user input from
+     */
     public void editTicket(Scanner input)
     {
         System.out.println();
@@ -116,6 +136,14 @@ public class TicketBuffer
         }
     }
     
+    /**
+     * Takes the user through the process of deleting a new Ticket.
+     * Removes the ticket from the list.
+     * 
+     * Does not sort.
+     * 
+     * @param input The stream to get user input from
+     */
     public void deleteTicket(Scanner input)
     {
         System.out.println();
@@ -130,6 +158,9 @@ public class TicketBuffer
         tickets.remove(index);
     }
     
+    /**
+     * Saves the ticket list to a file.
+     */
     public void save() // add support to make multiple files
     {
         System.out.println();
@@ -155,6 +186,9 @@ public class TicketBuffer
         writer.close();
     }
     
+    /**
+     * Sorts the list by priority in increasing order.
+    */
     public void sortByPriority()
     {
         Ticket temp;
@@ -172,6 +206,9 @@ public class TicketBuffer
         }    
     }
     
+    /**
+     * Fills list with saved data from the save file 
+     */
     public void openSaveFile()
     {
         System.out.println("Opening Save File.....");
@@ -212,7 +249,7 @@ public class TicketBuffer
         
         System.out.println();
     }
-
+    
     @Override
     public String toString() 
     {
