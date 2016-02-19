@@ -5,7 +5,6 @@
  */
 package ticket;
 
-import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -18,8 +17,8 @@ public class Ticket
     private String title;
     private String description;
     private int userPriority;
-    //private Date dateCreated = new Date();
-    //private Date deadline;
+    private Date deadline = new Date(0, 1, 1);
+    
     
     /**
      * Creates new ticket.
@@ -51,10 +50,18 @@ public class Ticket
         description = disc;
         priority = prior;
     }
+
+    public Date getDeadline() 
+    {
+        return deadline;
+    }
     
     public String toString()
     {
-        return title + "\n" + description + "\n" + "Priority: " + priority;
+        if(deadline.getYear() < 2000)
+            return title + "\n" + description + "\n" + "Priority: " + priority;
+        else
+            return title + "\n" + description + "\n" + "Priority: " + priority + "\n" + "Deadline: " + deadline;
     }
     
     public double getPriority()
