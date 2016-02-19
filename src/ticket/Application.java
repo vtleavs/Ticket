@@ -9,22 +9,32 @@ import java.util.Date;
 import java.util.Scanner;
 
 /**
- *
+ * The 'Ticket' application
+ * 
  * @author Ben Leavitt
  */
 public class Application
 {
     TicketBuffer buffer;
+    static Scanner input;
+    Date d;
+
+    /**
+     * Initializes values
+     */
+    public Application() 
+    {
+        d = new Date(System.currentTimeMillis());
+        input = new Scanner(System.in).useDelimiter("\n");
+        buffer = new TicketBuffer();
+    }
     
+    /**
+     * Runs the application
+     */
     public void run()
     {
-        Date d = new Date(System.currentTimeMillis());
         System.out.println(d.toString()+"\n");
-        
-        Scanner input = new Scanner(System.in).useDelimiter("\n");
-        
-        buffer = new TicketBuffer();
-        //tickets = new ArrayList<>();
         
         System.out.println("Welcome to Ticket V1");
         System.out.println("Time to start Organizing your Life!");
@@ -34,15 +44,22 @@ public class Application
         
         System.out.println("Please enter a command (h for list of commands)");
         
-        boolean exitStatus = true;
+        boolean runStatus = true;
         do
         {
             System.out.print(">> ");
-            exitStatus = getUserInput(input);
-        }while(exitStatus);
+            runStatus = getUserCommands(input);
+        }while(runStatus);
     }
     
-     public boolean getUserInput(Scanner input)
+    /**
+     * Called every time a user command is needed.  Asks user to input a 
+     * command, and executes the command entered.
+     * 
+     * @param input The stream to get user input from
+     * @return The run status of the program, quits on false
+     */
+    public boolean getUserCommands(Scanner input)
     {
         String in = input.next();
         switch(in)
@@ -67,12 +84,23 @@ public class Application
         return true;
     }
 
+    /**
+     * Prints out the contents of 'buffer'
+     */
     public void showList()
     {
         System.out.println();
         System.out.println(buffer.toString());
     }
     
+    /**
+     * If the user is prompted to input a String, and inputs a value that is not
+     * recognized by the program, this will re-prompt the user to enter a valid
+     * String.
+     * 
+     * @param input The stream to get user input from
+     * @return The revised prompt input
+     */
     public static String noSuchPromptString(Scanner input)
     {
         System.out.println("That is not a valad command.  Please re-enter");
@@ -80,6 +108,14 @@ public class Application
         return input.next();
     }
     
+    /**
+     * If the user is prompted to input an int, and inputs a value that is not
+     * recognized by the program, this will re-prompt the user to enter a valid
+     * int.
+     * 
+     * @param input The stream to get user input from
+     * @return The revised prompt input
+     */
     public static int noSuchPromptInt(Scanner input)
     {
         System.out.println("That is not a valad command.  Please re-enter");
@@ -87,6 +123,14 @@ public class Application
         return input.nextInt();
     }
     
+    /**
+     * If the user is prompted to input a double, and inputs a value that is not
+     * recognized by the program, this will re-prompt the user to enter a valid
+     * double.
+     * 
+     * @param input The stream to get user input from
+     * @return The revised prompt input
+     */
     public static double noSuchPromptDouble(Scanner input)
     {
         System.out.println("That is not a valad command.  Please re-enter");
@@ -94,6 +138,9 @@ public class Application
         return input.nextDouble();
     }
     
+    /**
+     * Prints the list of available commands to the output
+     */
     public void listCommands()
     {
         System.out.println();

@@ -12,6 +12,7 @@ package ticket;
 public class Main
 {
     /**
+     * Runs the application
      * @param args the command line arguments
      */   
     public static void main(String[] args)
