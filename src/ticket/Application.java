@@ -17,14 +17,12 @@ public class Application
 {
     TicketBuffer buffer;
     static Scanner input;
-    Date d;
 
     /**
      * Initializes values
      */
     public Application() 
     {
-        d = new Date(System.currentTimeMillis());
         input = new Scanner(System.in).useDelimiter("\n");
         buffer = new TicketBuffer();
     }
@@ -34,7 +32,7 @@ public class Application
      */
     public void run()
     {
-        System.out.println(d.toString()+"\n");
+        System.out.println(currentDate().toString()+"\n");
         
         System.out.println("Welcome to Ticket V1");
         System.out.println("Time to start Organizing your Life!");
@@ -153,5 +151,14 @@ public class Application
         System.out.println(" x - exit program");
         System.out.println(" s - save list");
         System.out.println();
+    }
+    
+    /**
+     * Calculates current date.
+     * @return The date.
+     */
+    static Date currentDate()
+    {
+        return new Date(System.currentTimeMillis());
     }
 }
