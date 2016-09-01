@@ -226,6 +226,7 @@ public class TicketBuffer
         String title = "";
         String description = "";
         double priority = -1;
+        String deadline = "";
         
         boolean reading = true;
         while(reading)
@@ -238,6 +239,7 @@ public class TicketBuffer
                 br.skip(10);
                 priority = Double.parseDouble(br.readLine());
                 br.skip(0);
+                //deadline = br.readLine();
                 br.readLine();
                 tickets.add(new Ticket(title, description, priority));
             } 

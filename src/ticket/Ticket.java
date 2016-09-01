@@ -61,7 +61,7 @@ public class Ticket
         if(deadline.getYear() < 2000)
             return title + "\n" + description + "\n" + "Priority: " + priority;
         else
-            return title + "\n" + description + "\n" + "Priority: " + priority + "\n" + "Deadline: " + deadline;
+            return title + "\n" + description + "\n" + "Priority: " + priority + "\n" + deadline;
     }
     
     public double getPriority()
@@ -98,6 +98,4 @@ public class Ticket
     {
         description = d;
     }
-    
-    
 }
